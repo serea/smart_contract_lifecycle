@@ -317,3 +317,9 @@ if __name__ == "__main__":
         jsonContent = str(i[1]).lower()
         if "PVP" in jsonContent or "pvp" in jsonContent or "0x5b1fef120" in jsonContent:
             print(i[0])
+
+def ignoreExchanges(games):
+    exchanges = ['IDEX', 'Kyber-Network', 'Local-Ethereum', 'ForkDelta', 'wibson','Token-Store', 'Bancor', 'radar-relay', 'FunFair', 'SONM', "foam-map", "ethfinex-trustless"]
+    games = [i for i in games if i not in exchanges]
+
+    return games
