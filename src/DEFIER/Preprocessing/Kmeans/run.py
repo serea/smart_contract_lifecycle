@@ -15,7 +15,7 @@ from datetime import datetime, timedelta
 import time
 from tqdm import tqdm
 from sqlalchemy import create_engine
-from ..baseFunction import read_list, save_list, graphConstructor, calcGraphSimilarityByGED, getSingleGraphByTx, mkdir
+from ..baseFunction import read_list, save_list, graphConstructor, calcGraphSimilarityByGED, getSingleGraphByTx, mkdir, ignoreExchanges
 
 import KMean
 
@@ -52,13 +52,6 @@ def getGroupName(mode = "testset"):
     cursor.execute(sql)
     repetition = cursor.fetchall()
     return [i[0] for i in repetition]
-
-def ignoreExchanges(games):
-    exchanges = ['IDEX', 'Kyber-Network', 'Local-Ethereum', 'ForkDelta', 'wibson','Token-Store', 'Bancor', 'radar-relay', 'FunFair', 'SONM', "foam-map", "ethfinex-trustless"]
-    games = [i for i in games if i not in exchanges]
-
-    return games
-
 
 def PackageUnknownSet(note):
     """In cluster module, such as `testset()`, we can manually set the name of the cluster result, e.g. \"unknownset-threshold3\".
