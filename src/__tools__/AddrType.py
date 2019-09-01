@@ -14,7 +14,7 @@ if w3.isConnected() is not True:
     print(">>> https://web3py.readthedocs.io/en/stable/providers.html")
     
 
-class Type:
+class AddrType:
     def __init__(self, __load__ = "full"):
         context = ssl._create_unverified_context()
         requests.adapters.DEFAULT_RETRIES = 500
@@ -129,7 +129,7 @@ class Type:
         return False
 
 if __name__ == "__main__":
-    t = Type(__load__="empty")  # load with no DB pre-store type information. Good choice for light tasks.
-    t = Type(__load__="full")   # load with Million-level DB pre-store type information. Save time for 10k-level tasks.
+    t = AddrType(__load__="empty")  # load with no DB pre-store type information. Good choice for light tasks.
+    t = AddrType(__load__="full")   # load with Million-level DB pre-store type information. Save time for 10k-level tasks.
 
     
