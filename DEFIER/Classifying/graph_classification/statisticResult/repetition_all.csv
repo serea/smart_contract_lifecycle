@@ -1,0 +1,402 @@
+,count(distinct(hashKey)),label,note
+0,229,0,0xUniverse
+1,10,2,0xUniverse
+2,2251,4,0xUniverse
+3,23,0,1000Guess
+4,27,2,1000Guess
+5,11,0,Ace Dice
+6,21,2,Ace Dice
+7,621,4,Ace Dice
+8,84,0,Airswap
+9,43,1,Airswap
+10,353,2,Airswap
+11,787,3,Airswap
+12,28,4,Airswap
+13,217,0,Auctionity
+14,1465,1,Auctionity
+15,6507,2,Auctionity
+16,1204,3,Auctionity
+17,7927,4,Auctionity
+18,15010,0,Augur
+19,503,1,Augur
+20,9064,2,Augur
+21,2741,3,Augur
+22,47358,4,Augur
+23,124,0,Axie-Infinity
+24,15,1,Axie-Infinity
+25,15,2,Axie-Infinity
+26,35,3,Axie-Infinity
+27,319,4,Axie-Infinity
+28,62,0,bingo4beast long official (b4b)
+29,2,1,bingo4beast long official (b4b)
+30,1380,2,bingo4beast long official (b4b)
+31,7,3,bingo4beast long official (b4b)
+32,2495,4,bingo4beast long official (b4b)
+33,78,0,BlackJack
+34,10,2,BlackJack
+35,233,3,BlackJack
+36,58,4,BlackJack
+37,1576,0,Blockchain-Cuties
+38,1481,1,Blockchain-Cuties
+39,1528,2,Blockchain-Cuties
+40,61,3,Blockchain-Cuties
+41,5565,4,Blockchain-Cuties
+42,14372,0,Bloom
+43,92,1,Bloom
+44,10944,2,Bloom
+45,106647,3,Bloom
+46,241616,4,Bloom
+47,514,0,Chibi-Fighters
+48,32,1,Chibi-Fighters
+49,426,2,Chibi-Fighters
+50,92,3,Chibi-Fighters
+51,4188,4,Chibi-Fighters
+52,42,0,CityMayor
+53,10,1,CityMayor
+54,2,2,CityMayor
+55,29,3,CityMayor
+56,862,4,CityMayor
+57,1,0,CoinFlip
+58,2,4,CoinFlip
+59,2592,0,Compound
+60,408,1,Compound
+61,915,2,Compound
+62,395,3,Compound
+63,3766,4,Compound
+64,134,0,Crypt-Oink
+65,16,2,Crypt-Oink
+66,172,4,Crypt-Oink
+67,1454,0,cryptoflowers
+68,100,1,cryptoflowers
+69,1367,2,cryptoflowers
+70,2,3,cryptoflowers
+71,3047,4,cryptoflowers
+72,11,0,CryptoKitties
+73,135,2,CryptoKitties
+74,15966,4,CryptoKitties
+75,4,4,CryptoRoulette
+76,72,0,DAO
+77,83,2,DAO
+78,71,3,DAO
+79,605,4,DAO
+80,20,0,dice for slice
+81,1,1,dice for slice
+82,24,2,dice for slice
+83,67,4,dice for slice
+84,3762,0,dice2.win
+85,99,1,dice2.win
+86,292,2,dice2.win
+87,76,3,dice2.win
+88,65645,4,dice2.win
+89,45,0,dicegame
+90,34,2,dicegame
+91,14,3,dicegame
+92,93,4,dicegame
+93,18,0,diceroll.app
+94,2,3,diceroll.app
+95,213,4,diceroll.app
+96,294,0,Edgeless
+97,398,2,Edgeless
+98,124,3,Edgeless
+99,1089,4,Edgeless
+100,5420,0,ETH-Town
+101,615,1,ETH-Town
+102,298,2,ETH-Town
+103,127,3,ETH-Town
+104,7365,4,ETH-Town
+105,13,0,ethcrystal fomo
+106,5,3,ethcrystal fomo
+107,459,4,ethcrystal fomo
+108,891,0,ethdice
+109,235,2,ethdice
+110,2,3,ethdice
+111,14222,4,ethdice
+112,4727,0,Ether-Kingdoms
+113,2,1,Ether-Kingdoms
+114,9,2,Ether-Kingdoms
+115,42,3,Ether-Kingdoms
+116,2312,4,Ether-Kingdoms
+117,1403,0,EtherCartel
+118,835,1,EtherCartel
+119,44,2,EtherCartel
+120,77,3,EtherCartel
+121,38353,4,EtherCartel
+122,1871,0,Etheremon
+123,171,2,Etheremon
+124,8,3,Etheremon
+125,3725,4,Etheremon
+126,7,0,EtherLotto
+127,16,4,EtherLotto
+128,44020,0,Etheroll
+129,108,1,Etheroll
+130,1551,2,Etheroll
+131,3,3,Etheroll
+132,184413,4,Etheroll
+133,6,2,EtherPot
+134,50,4,EtherPot
+135,75,4,Ethraffle_v4b
+136,36,0,EthStick
+137,14,2,EthStick
+138,5443,4,EthStick
+139,6,0,FCK-2
+140,10,1,FCK-2
+141,10,3,FCK-2
+142,126,4,FCK-2
+143,29,4,FirePonzi
+144,852,0,fomo lightning
+145,625,1,fomo lightning
+146,3404,2,fomo lightning
+147,193,3,fomo lightning
+148,27736,4,fomo lightning
+149,745,0,fomo short
+150,1432,1,fomo short
+151,1308,2,fomo short
+152,406,3,fomo short
+153,48553,4,fomo short
+154,22,0,fomo super
+155,43,2,fomo super
+156,61,3,fomo super
+157,2273,4,fomo super
+158,86,0,fomo2d
+159,27,1,fomo2d
+160,30,2,fomo2d
+161,24,3,fomo2d
+162,2715,4,fomo2d
+163,18158,0,fomo3d
+164,21096,1,fomo3d
+165,36015,2,fomo3d
+166,1333,3,fomo3d
+167,361460,4,fomo3d
+168,52,0,fomo3d loop
+169,31,1,fomo3d loop
+170,16,2,fomo3d loop
+171,28,3,fomo3d loop
+172,1792,4,fomo3d loop
+173,264,0,fomo3dlong
+174,31,1,fomo3dlong
+175,455,2,fomo3dlong
+176,24,3,fomo3dlong
+177,17239,4,fomo3dlong
+178,298,0,fomo4d
+179,75,1,fomo4d
+180,4432,2,fomo4d
+181,5,3,fomo4d
+182,17350,4,fomo4d
+183,111,0,fomo4d chess
+184,3,1,fomo4d chess
+185,216,2,fomo4d chess
+186,99,3,fomo4d chess
+187,6363,4,fomo4d chess
+188,26,0,fomo777
+189,17,1,fomo777
+190,1,2,fomo777
+191,3110,4,fomo777
+192,12,0,fomofast
+193,19,2,fomofast
+194,115,4,fomofast
+195,392,0,fomogame
+196,421,2,fomogame
+197,30,3,fomogame
+198,20088,4,fomogame
+199,1147,0,fomojp
+200,245,1,fomojp
+201,6868,2,fomojp
+202,64,3,fomojp
+203,20985,4,fomojp
+204,34,0,fomolol
+205,5,1,fomolol
+206,21,2,fomolol
+207,24,3,fomolol
+208,952,4,fomolol
+209,37,0,fomosports
+210,18,1,fomosports
+211,22,2,fomosports
+212,8,3,fomosports
+213,3319,4,fomosports
+214,68,0,fomowar
+215,1,1,fomowar
+216,357,2,fomowar
+217,33,3,fomowar
+218,22853,4,fomowar
+219,360,0,fomoﬁve
+220,162,1,fomoﬁve
+221,175,2,fomoﬁve
+222,147,3,fomoﬁve
+223,10750,4,fomoﬁve
+224,49,0,full fomo
+225,13,2,full fomo
+226,19,3,full fomo
+227,984,4,full fomo
+228,508,0,Gods-Unchained
+229,154,1,Gods-Unchained
+230,154,2,Gods-Unchained
+231,94,3,Gods-Unchained
+232,11562,4,Gods-Unchained
+233,64,1,GoodFellas
+234,11,2,GoodFellas
+235,142,4,GoodFellas
+236,107,0,GovernMental Ponzi Scheme
+237,10,2,GovernMental Ponzi Scheme
+238,539,4,GovernMental Ponzi Scheme
+239,476,0,grand theft fomo
+240,8,1,grand theft fomo
+241,298,2,grand theft fomo
+242,190,3,grand theft fomo
+243,14704,4,grand theft fomo
+244,5442,0,HyperDragons
+245,1028,1,HyperDragons
+246,934,2,HyperDragons
+247,8,3,HyperDragons
+248,7408,4,HyperDragons
+249,11,2,ICO
+250,19,4,ICO
+251,173,0,imfomo
+252,47,2,imfomo
+253,14,3,imfomo
+254,6196,4,imfomo
+255,2981,0,infinity
+256,106,1,infinity
+257,679,2,infinity
+258,243,3,infinity
+259,22661,4,infinity
+260,5,0,koreanfomo3d
+261,240,4,koreanfomo3d
+262,14,2,LastIsMe
+263,1045,4,LastIsMe
+264,8272,0,lastwinner
+265,343,1,lastwinner
+266,14656,2,lastwinner
+267,1310,3,lastwinner
+268,537264,4,lastwinner
+269,9,0,lucky dice
+270,4,2,lucky dice
+271,5,3,lucky dice
+272,281,4,lucky dice
+273,824,0,LuckyBlock
+274,1223,1,LuckyBlock
+275,133,2,LuckyBlock
+276,2,3,LuckyBlock
+277,5211,4,LuckyBlock
+278,3,0,LuckyDoubler
+279,47,2,LuckyDoubler
+280,31,4,LuckyDoubler
+281,780,0,MegaCryptoPolis
+282,389,2,MegaCryptoPolis
+283,2437,4,MegaCryptoPolis
+284,424,0,Minds
+285,594,1,Minds
+286,2164,2,Minds
+287,34,3,Minds
+288,1568,4,Minds
+289,1540,0,MLB-Crypto-Baseball
+290,49,3,MLB-Crypto-Baseball
+291,351,4,MLB-Crypto-Baseball
+292,158,0,multiplayer dice online
+293,15,4,multiplayer dice online
+294,221,0,My-Crypto-Heroes
+295,29,2,My-Crypto-Heroes
+296,6,3,My-Crypto-Heroes
+297,497,4,My-Crypto-Heroes
+298,11,0,notfomo3d
+299,96,4,notfomo3d
+300,7917,0,Numerai
+301,47,1,Numerai
+302,4406,2,Numerai
+303,611,3,Numerai
+304,13625,4,Numerai
+305,1,0,OpenAddressLottery
+306,1,4,OpenAddressLottery
+307,124,0,origin-protocol
+308,25,2,origin-protocol
+309,799,4,origin-protocol
+310,558,2,play0x
+311,184,4,play0x
+312,14,1,playtowin-io
+313,75,3,playtowin-io
+314,1810,4,playtowin-io
+315,386,0,powerofbubble
+316,2415,4,powerofbubble
+317,2483,0,powh-3d
+318,13,1,powh-3d
+319,1119,2,powh-3d
+320,22,3,powh-3d
+321,7096,4,powh-3d
+322,1126,0,ratscam
+323,32,1,ratscam
+324,391,2,ratscam
+325,42,3,ratscam
+326,30370,4,ratscam
+327,21,0,Roulette
+328,4,2,Roulette
+329,1,3,Roulette
+330,12,4,Roulette
+331,2775,0,RussianRoulette
+332,352,1,RussianRoulette
+333,35,2,RussianRoulette
+334,280,3,RussianRoulette
+335,11538,4,RussianRoulette
+336,46,4,slotthereum
+337,20,2,SmartBillions
+338,7,3,SmartBillions
+339,684,4,SmartBillions
+340,471,0,smartdice
+341,1212,4,smartdice
+342,262,0,souha
+343,383,1,souha
+344,131,2,souha
+345,547,3,souha
+346,9826,4,souha
+347,1472,0,spacewar
+348,1019,1,spacewar
+349,3342,2,spacewar
+350,477,3,spacewar
+351,23139,4,spacewar
+352,10,0,StackyGame
+353,11,4,StackyGame
+354,6509,0,STOX
+355,896,1,STOX
+356,8467,2,STOX
+357,2752,3,STOX
+358,14151,4,STOX
+359,1469,0,supercard
+360,220,1,supercard
+361,3042,2,supercard
+362,1207,3,supercard
+363,37959,4,supercard
+364,1082,0,switcheo-2
+365,107,1,switcheo-2
+366,942,2,switcheo-2
+367,129,3,switcheo-2
+368,1774,4,switcheo-2
+369,6,0,TheRun
+370,108,4,TheRun
+371,392,0,unnamed1
+372,141,2,unnamed1
+373,39,3,unnamed1
+374,7318,4,unnamed1
+375,234,0,unnamed2
+376,199,2,unnamed2
+377,190,3,unnamed2
+378,3195,4,unnamed2
+379,13,0,unnamed3
+380,84,1,unnamed3
+381,3,3,unnamed3
+382,11441,4,unnamed3
+383,2025,2,unnamed4
+384,7,3,unnamed4
+385,320,4,unnamed4
+386,342,0,vdize
+387,986,2,vdize
+388,6,3,vdize
+389,1337,4,vdize
+390,2741,0,Wings
+391,1210,2,Wings
+392,138,3,Wings
+393,947,4,Wings
+394,768,0,world fomo
+395,556,2,world fomo
+396,87,3,world fomo
+397,21135,4,world fomo
+398,85,0,xether-2
+399,18,2,xether-2
+400,1891,4,xether-2

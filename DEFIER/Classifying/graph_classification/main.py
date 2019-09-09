@@ -10,13 +10,10 @@ from sklearn.model_selection import train_test_split, KFold
 import random
 import torch
 import itertools
-
 sys.path.append('%s/../s2v_lib' % os.path.dirname(os.path.realpath(__file__)))
 from embedding import EmbedMeanField, EmbedLoopyBP
 from mlp import MLPClassifier, LSTMTagger
-
-from util import cmd_args, load_data, load_transaction_json_data, load_user_and_transaction_json_data, load_transaction_seq_data
-
+from util import cmd_args, load_transaction_seq_data
 from sklearn import metrics
 from sklearn.metrics import (auc, classification_report, roc_curve, zero_one_loss)
 from sklearn import preprocessing
@@ -25,14 +22,12 @@ import pandas as pd
 import numpy as np
 import networkx as nx
 from tqdm import tqdm
-
 import matplotlib.pyplot as plt
 from scipy import interp
 from itertools import cycle
-
 from node2vec import Node2Vec
-
 from datetime import datetime
+import ast
 
 class Classifier(nn.Module):
     def __init__(self):
@@ -56,7 +51,6 @@ class Classifier(nn.Module):
                 max_lv=cmd_args.max_lv)
 
         self.mlp = MLPClassifier(input_size=out_dim, hidden_size=cmd_args.hidden, num_class=cmd_args.num_class)
-        #self.mlp = LSTMTagger(embedding_dim=out_dim, hidden_dim=cmd_args.hidden, vocab_size=9999, target_size=cmd_args.num_class)
 
     def PrepareFeatureLabel(self, batch_graph):
         labels = torch.LongTensor(len(batch_graph))
@@ -114,7 +108,6 @@ class SeqClassifier(nn.Module):
                 num_edge_feats=cmd_args.edge_feat_dim,
                 max_lv=cmd_args.max_lv)
 
-        #self.mlp = MLPClassifier(input_size=out_dim, hidden_size=cmd_args.hidden, num_class=cmd_args.num_class)
         self.lstm = LSTMTagger(embedding_dim=out_dim, hidden_dim=cmd_args.hidden, vocab_size=128*20, target_size=cmd_args.num_class)
         
 
@@ -125,7 +118,6 @@ class SeqClassifier(nn.Module):
         concat_feat = []
         concat_edge_feat = []
         for i in range(len(batch_graph)):
-            #labels[i] = batch_graph[i].label
             n_nodes += batch_graph[i].num_nodes
             n_edges += batch_graph[i].num_edges
             if batch_graph[i].node_tags is not None:
@@ -158,8 +150,7 @@ class SeqClassifier(nn.Module):
         embed_node_eoa_list = []
         embed_node_d_list = []
         embed_list_temp_file = []
-        labels = torch.LongTensor(len(batch_graph), 1) #.random_() % 2
-        #labels_one_hot = torch.zeros(len(batch_graph), 2).scatter_(1, labels, 1)
+        labels = torch.LongTensor(len(batch_graph), 1) 
         i = 0
         g_list = []
         
@@ -176,39 +167,12 @@ class SeqClassifier(nn.Module):
             embed_temp = None
             embed_node_eoa_temp = None
             embed_node_d_temp = None
-            # if graphseq[0].label < 4 and graphseq[0].label > 0:
+            
             if len(graphseq)>0:
                 labels[i] = graphseq[0].label
-                # print(graphseq[0])
-                # print(graphseq[0].label)
-                # print(type(graphseq[0].label))
-                # print(labels[i])
+
                 i += 1
-            #node_feat, edge_feat, _ = self.PrepareFeatureLabel(graphseq)
-            #embed = self.s2v(graphseq, node_feat, edge_feat)
-            #embed_list_temp_file.append([[embed.detach().numpy().tolist()],graphseq[0].label])
-
-            #for e in embed:
-            #    embed_temp = embed_temp+e if embed_temp is not None else e
-            '''
-            for g in graphseq:
-                node_feat, edge_feat, _ = self.PrepareFeatureLabel([g])
-                embed = self.s2v([g], node_feat, edge_feat)
-                
-                for e in embed:
-                    embed_temp = torch.cat([embed_temp,e], 0) if embed_temp is not None else e
             
-            embed_list.append(embed_temp.detach().numpy())
-
-            for g in graphseq:
-                node_feat, edge_feat, _ = self.PrepareFeatureLabel([g])
-                embed = self.s2v([g], node_feat, edge_feat)
-                
-                for e in embed:
-                    embed_temp = torch.cat([embed_temp,e], 0) if embed_temp is not None else e
-            embed_list.append(embed_temp)
-            '''
-
             # Node2Vec
             for g in graphseq:
                 node2vec = Node2Vec(g.g, dimensions=64, walk_length=10, num_walks=10, workers=4)  # walk_length=10, num_walks=10
@@ -242,21 +206,10 @@ class SeqClassifier(nn.Module):
             embed_temp = np.lib.pad(embed_temp.detach().numpy(), pad_width=((0,max_length-len(embed_temp)),(0,0)), mode='constant', constant_values=((-1,-1),(-1,-1)))
             embed_list.append(embed_temp.tolist())
 
-            #embed_atten_temp = np.lib.pad(embed_atten_temp.detach().numpy(), pad_width=((0,max_length-len(embed_temp)),(0,0)), mode='constant', constant_values=((-1,-1),(-1,-1)))
-            #embed_atten_list.append(embed_atten_temp.tolist())
-
-        #embed_list = list(itertools.zip_longest(*embed_list, fillvalue = -1))
         embed_list = torch.FloatTensor(embed_list)
         embed_node_eoa_list = torch.FloatTensor(embed_node_eoa_list)
         embed_node_d_list = torch.FloatTensor(embed_node_d_list)
 
-        #print(sorted_seq_lengths)
-        # print(embed_list)
-        # print(embed_list.size())
-        # print(len(sorted_seq_lengths.cpu().numpy()))
-        #embed_pack = torch.nn.utils.rnn.pack_padded_sequence(input=embed_list, lengths=np.array(embed_length), batch_first=False, enforce_sorted=False)
-
-        #return self.mlp(torch.Tensor(embed_list), labels.squeeze())
         return self.lstm(np.array(embed_length), batch_size, embed_list, labels, embed_node_eoa_list, embed_node_d_list) #.long()
 
 
@@ -303,21 +256,11 @@ def load_model_and_test(test_graphs):
     print(classification_report(y_test, pred, digits = 5))
     print(metrics.confusion_matrix(y_test, pred, labels=None, sample_weight=None))
 
-    '''
-    with open("./fp1128.loopy1.csv","a+") as fpcsvfile, open("./fn1128.loopy1.csv","a+") as fncsvfile: 
-        for (yt,yp,transHash) in zip(y_test, pred, allTransList):
-            if yp==1 and yt == 0:
-                csv.writer(fpcsvfile).writerow([transHash])
-            elif yp==0 and yt == 1:
-                csv.writer(fncsvfile).writerow([transHash])
-    '''
-
 def main(train_graphs, validate):
     random.seed(cmd_args.seed)
     np.random.seed(cmd_args.seed)
     torch.manual_seed(cmd_args.seed)
 
-    #train_graphs, validate = load_data()
     print('# train: %d, # test: %d' % (len(train_graphs), len(validate)))
 
     classifier = Classifier()
@@ -340,7 +283,6 @@ def main(train_graphs, validate):
             best_loss = test_loss[0]
             print('----saving to best model since this is the best valid loss so far.----')
             torch.save(classifier.state_dict(), './epoch-best-mlp0119.model')
-            #save_args(cmd_args.save_dir + '/epoch-best-args.pkl', cmd_args)
 
 
 def loop_seqdataset_for_lstm(seq_list, classifier, sample_idxes, optimizer=None, bsize=cmd_args.batch_size):
@@ -374,7 +316,7 @@ def loop_seqdataset_for_lstm(seq_list, classifier, sample_idxes, optimizer=None,
     avg_loss = np.sum(total_loss, 0) / n_samples
     return avg_loss
 
-def load_lstm_model_and_test(test_graphs):
+def load_lstm_model_and_test(test_graphs,resultName):
     classifier = SeqClassifier()
     classifier.load_state_dict(torch.load('./epoch-test-lstm.model', map_location=lambda storage, loc: storage))
     if cmd_args.mode == 'gpu':
@@ -391,9 +333,6 @@ def load_lstm_model_and_test(test_graphs):
 
     print(classification_report(y_test, pred, digits = 5))
     print(metrics.confusion_matrix(y_test, pred, labels=None, sample_weight=None))
-
-    #false_positive_rate, recall, thresholds = roc_curve(y_test, pred_prob)
-    #roc_auc = auc(false_positive_rate, recall)
     
     fpr = dict()
     tpr = dict()
@@ -452,7 +391,7 @@ def load_lstm_model_and_test(test_graphs):
     for idx in range(len(test_graphs)):
         allTransList.append([test_graphs[idx][idxx].gid for idxx in range(len(test_graphs[idx]))])
 
-    with open("./result.csv","a+") as resfile:
+    with open("./result/"+resultName+".csv","a+") as resfile:
         for (yt,yp,transHash) in zip(y_test, pred, allTransList):
             csv.writer(resfile).writerow([yp, transHash])
     # with open("./fp.seq.csv","a+") as fpcsvfile, open("./fn.seq.csv","a+") as fncsvfile, open("./label-0.seq.csv","a+") as label0file, open("./label-1.seq.csv","a+") as label1file: 
@@ -472,7 +411,6 @@ def main_lstm(train_graphs, validate):
     np.random.seed(cmd_args.seed)
     torch.manual_seed(cmd_args.seed)
 
-    #train_graphs, validate = load_data()
     print('# train: %d, # test: %d' % (len(train_graphs), len(validate)))
 
     classifier = SeqClassifier()
@@ -498,105 +436,28 @@ def main_lstm(train_graphs, validate):
             torch.save(classifier.state_dict(), './epoch-test-lstm.model')
 
 if __name__ == '__main__':
-    #'./data/splited_2b_nodup.csv'
-    
-    '''
-    # './data/splited_2b_nodup.csv',    './data/splited_23b_nodup.csv',
-    train_graphs, test_graphs = load_transaction_json_data(['./data/splited_1125_report_nodup.csv','./data/splited_2b_nodup.csv', ], ['./data/splited_1124_confirm_nodup.csv','./data/splited_23b_nodup.csv',], '/Users/yaoyepeng/Project/contract_analysis/')
-    train, validate = train_test_split(train_graphs, test_size=0.1, random_state=1)
-    #main(train, validate)
-    load_model_and_test(test_graphs)
-    '''
-
-    #test_graphs = load_user_and_transaction_json_data(['/Users/yaoyepeng/Project/contract_analysis/positiveUser_temp_212.csv',], '/Users/yaoyepeng/Project/contract_analysis/')
-    #train, validate = train_test_split(test_graphs, test_size=0.1, random_state=1)
-    #main(train, validate)
-    #load_model_and_test(test_graphs)
+   
     start_main = datetime.now()
-    train_graphs, test_graphs = load_transaction_seq_data([
-        #'./data/cross_bad_report.csv',
-        #'./data/single_bad_report.csv',
-        #'./data/cross_good_report.csv',
 
-        #'./data/extend_control_game/DICE1-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/DICE2-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/DICE3-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/FOMO2-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/FOMO3-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/godgame-cluster_extend_control_game.csv'
-        #'./data/extend_control_game/PARITY-PIE-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/PRIVATE1-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/godgame-cluster_extend_control_game.csv',
-        
-        #'./data/extend_control_game/badset_ori_extend_control_game_5.csv',
-        #'./data/extend_control_game/badset_ori_extend_control_game_8.csv',
-        #'./data/extend_control_game/badset_ori_extend_control_game_10.csv',
-        #'./data/extend_control_game/goodset_ori_extend_control_game_5.csv',
-        #'./data/extend_control_game/goodset_ori_extend_control_game_8.csv',
-
-        # './data/badset_ori_group/badset_ori_badRan_extend_control_game_5.csv',
-        # './data/badset_ori_group/badset_ori_badRan_extend_control_game_8.csv',
-        # './data/badset_ori_group/badset_ori_overflow_extend_control_game_5.csv',
-        # './data/badset_ori_group/badset_ori_overflow_extend_control_game_8.csv',
-        # './data/badset_ori_group/badset_ori_reentran_extend_control_game_5.csv',
-        # './data/badset_ori_group/badset_ori_reentran_extend_control_game_8.csv',
-        # './data/badset_ori_group/badset_ori_dos_extend_control_game_5.csv',
-        # './data/badset_ori_group/badset_ori_dos_extend_control_game_8.csv',
-
-        # './data/extend_control_game_no_transfer/goodset_ori_0_extend_control_game_5.csv',
-        # './data/extend_control_game_no_transfer/goodset_ori_0_extend_control_game_8.csv',
-        # './data/extend_control_game_no_transfer/goodset_ori_0_extend_control_game_10.csv',
-        './data/goodset_new.csv',
-        './data/extend_control_game_no_transfer/badset_ori_notransfer_no3_extend_control_game_5.csv',
-        './data/extend_control_game_no_transfer/badset_ori_notransfer_no3_extend_control_game_8.csv',
-        './data/extend_control_game_no_transfer/badset_ori_notransfer_no3_extend_control_game_10.csv',
-        
-        ],
-        [
-        # './data/all_user_labeled_except_null.csv',
-        # './data/cross_user_by_game_30day_labeled.csv',
-        # './data/single_bad_d2w.csv',
-        # './data/cross_bad_d2w.csv',
-
-        #'./data/extend_control_game/DICE1-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/DICE2-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/DICE3-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/FOMO2-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/FOMO3-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/godgame-cluster_extend_control_game.csv'
-        #'./data/extend_control_game/FOMO2-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/PARITY-PIE-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/PRIVATE1-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/RocketCoin3-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/RocketCoin4-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/Rubixi1-max150-cluster_extend_control_game.csv',
-        #'./data/extend_control_game/THRONE1-max150-cluster_extend_control_game.csv',
-        
-        #'./data/extend_control_game/badset_ori_extend_control_game_5.csv',
-        #'./data/extend_control_game/goodset_ori_extend_control_game_5.csv',
-
-        # './data/badset_ori_group/badset_ori_imAuth_extend_control_game_5.csv',
-        # './data/badset_ori_group/badset_ori_imAuth_extend_control_game_8.csv',
-        # './data/badset_ori_group/badset_ori_imAuth_extend_control_game_10.csv',
-        
-        #'./data/unknownset_0713.csv',
-        './data/unknown_class_newtype_rerun.csv'
-        ])
-    
-    # train_set, test_set = train_test_split(train_graphs, test_size=0.1, random_state=1)
-    # train, validate = train_test_split(train_set, test_size=0.1, random_state=1)#train_graphs[:]+test_graphs[600:]
-
-    train, validate = train_test_split(train_graphs, test_size=0.1, random_state=1)
+    train_graphs, test_graphs = load_transaction_seq_data(ast.literal_eval(cmd_args.trainset),ast.literal_eval(cmd_args.testset))
+       
+    if cmd_args.isvalidate:
+        train_set, test_set = train_test_split(train_graphs, test_size=0.3, random_state=1)
+        train, validate = train_test_split(train_set, test_size=0.1, random_state=1)#train_graphs[:]+test_graphs[600:]
+    else:
+        train, validate = train_test_split(train_graphs, test_size=0.1, random_state=1)
+        test_set = test_graphs
     main_lstm(train, validate)
     print('Train Sets #: %d'%(len(train)+len(validate)))
     
     train_main = datetime.now()
     print("\n* Total training time of: is " + str(train_main - start_main))
 
-    test_set = test_graphs
     print('Test Sets #: %d'%(len(test_set)))
     random.shuffle(test_set)
-    load_lstm_model_and_test(test_set)
+    resultName="result_"+cmd_args.testset[17:-6]
+    print("resultName: "+resultName)
+    load_lstm_model_and_test(test_set,resultName)
 
     test_main = datetime.now()
     print("\n* Total testing time of: is " + str(test_main - train_main))

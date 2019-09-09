@@ -1,0 +1,171 @@
+,count(DISTINCT(`group`)),label,note
+0,1,0,1000Guess
+1,1,2,1000Guess
+2,4,2,bingo4beast long official (b4b)
+3,10,4,bingo4beast long official (b4b)
+4,4,3,BlackJack
+5,1,4,BlackJack
+6,1,0,Chibi-Fighters
+7,8,4,Chibi-Fighters
+8,2,4,CityMayor
+9,1,4,CoinFlip
+10,2,0,DAO
+11,3,2,DAO
+12,10,4,DAO
+13,4,0,dice for slice
+14,1,2,dice for slice
+15,3,4,dice for slice
+16,12,0,dice2.win
+17,1,1,dice2.win
+18,3,2,dice2.win
+19,43,4,dice2.win
+20,10,4,dicegame
+21,3,0,diceroll.app
+22,6,4,diceroll.app
+23,1,0,ETH-Town
+24,4,2,ETH-Town
+25,11,4,ETH-Town
+26,2,4,ethcrystal fomo
+27,6,0,ethdice
+28,2,2,ethdice
+29,201,4,ethdice
+30,18,0,EtherCartel
+31,1,3,EtherCartel
+32,720,4,EtherCartel
+33,2,0,Etheroll
+34,7,4,Etheroll
+35,1,4,FirePonzi
+36,51,0,fomo lightning
+37,23,1,fomo lightning
+38,57,2,fomo lightning
+39,4,3,fomo lightning
+40,286,4,fomo lightning
+41,84,0,fomo short
+42,495,1,fomo short
+43,275,2,fomo short
+44,6,3,fomo short
+45,2891,4,fomo short
+46,1,0,fomo super
+47,1,2,fomo super
+48,5,3,fomo super
+49,93,4,fomo super
+50,1,0,fomo2d
+51,3,1,fomo2d
+52,3,2,fomo2d
+53,121,4,fomo2d
+54,343,0,fomo3d
+55,434,1,fomo3d
+56,592,2,fomo3d
+57,16,3,fomo3d
+58,3207,4,fomo3d
+59,2,0,fomo3d loop
+60,2,1,fomo3d loop
+61,1,2,fomo3d loop
+62,1,3,fomo3d loop
+63,77,4,fomo3d loop
+64,6,0,fomo3dlong
+65,17,2,fomo3dlong
+66,93,4,fomo3dlong
+67,10,0,fomo4d
+68,89,2,fomo4d
+69,664,4,fomo4d
+70,5,0,fomo4d chess
+71,10,2,fomo4d chess
+72,2,3,fomo4d chess
+73,191,4,fomo4d chess
+74,2,0,fomo777
+75,5,1,fomo777
+76,2,0,fomofast
+77,3,2,fomofast
+78,9,4,fomofast
+79,10,0,fomogame
+80,3,2,fomogame
+81,1,3,fomogame
+82,235,4,fomogame
+83,18,0,fomojp
+84,4,1,fomojp
+85,71,2,fomojp
+86,1,3,fomojp
+87,196,4,fomojp
+88,1,0,fomolol
+89,3,2,fomolol
+90,61,4,fomolol
+91,140,4,fomosports
+92,4,0,fomowar
+93,4,2,fomowar
+94,220,4,fomowar
+95,7,0,fomoﬁve
+96,3,1,fomoﬁve
+97,7,2,fomoﬁve
+98,1,3,fomoﬁve
+99,133,4,fomoﬁve
+100,3,0,full fomo
+101,11,4,full fomo
+102,1,4,GovernMental Ponzi Scheme
+103,7,0,grand theft fomo
+104,1,1,grand theft fomo
+105,8,2,grand theft fomo
+106,3,3,grand theft fomo
+107,160,4,grand theft fomo
+108,12,0,imfomo
+109,11,2,imfomo
+110,1,3,imfomo
+111,300,4,imfomo
+112,29,0,infinity
+113,14,1,infinity
+114,3,2,infinity
+115,1,3,infinity
+116,72,4,infinity
+117,1,4,koreanfomo3d
+118,2,4,LastIsMe
+119,25,0,lastwinner
+120,6,1,lastwinner
+121,914,2,lastwinner
+122,909,4,lastwinner
+123,1,4,lucky dice
+124,2,4,LuckyBlock
+125,2,0,LuckyDoubler
+126,9,2,LuckyDoubler
+127,4,4,LuckyDoubler
+128,3,0,multiplayer dice online
+129,2,4,notfomo3d
+130,36,0,powh-3d
+131,23,2,powh-3d
+132,89,4,powh-3d
+133,37,0,ratscam
+134,1,1,ratscam
+135,33,2,ratscam
+136,832,4,ratscam
+137,2,0,Roulette
+138,2,4,slotthereum
+139,4,4,SmartBillions
+140,2,0,smartdice
+141,26,4,smartdice
+142,5,0,souha
+143,5,1,souha
+144,4,2,souha
+145,6,3,souha
+146,75,4,souha
+147,10,0,spacewar
+148,193,1,spacewar
+149,129,2,spacewar
+150,1,3,spacewar
+151,79,4,spacewar
+152,2,0,StackyGame
+153,39,0,supercard
+154,6,1,supercard
+155,72,2,supercard
+156,6,3,supercard
+157,606,4,supercard
+158,1,2,unnamed1
+159,45,4,unnamed1
+160,11,0,unnamed2
+161,2,2,unnamed2
+162,44,4,unnamed2
+163,6,2,unnamed4
+164,32,0,vdize
+165,8,2,vdize
+166,63,4,vdize
+167,29,0,world fomo
+168,85,2,world fomo
+169,756,4,world fomo
