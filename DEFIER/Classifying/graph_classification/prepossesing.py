@@ -7,6 +7,7 @@ from tqdm import tqdm
 import pymysql
 import datetime
 import ast
+import argparse
 
 
 
@@ -296,7 +297,12 @@ def statisticUnknownResult(resultTable,detailTabel):
 
 if __name__ == "__main__":
 
-    beforeClassify=1
+    cmd_opt = argparse.ArgumentParser(description='Argparser for prepossesing')
+    cmd_opt.add_argument('-beforeClassify', default=1, help='before classify 0 or 1')
+    cmd_args, _ = cmd_opt.parse_known_args()
+
+    beforeClassify=cmd_args.beforeClassify
+
     if beforeClassify==1:
         """In prepossesing module, we gather goodset_threshold3 and slide window of these clusters.
         
@@ -340,7 +346,7 @@ if __name__ == "__main__":
         Args:
             resultDictionary: ./result/
         """
-        # resultDictionary='./result/'
+        resultDictionary='./result/'
         resultTable='KMeans_0908'
         for (root, dirs, files) in os.walk(os.path.dirname(resultDictionary)):
             for file in tqdm(files):
@@ -354,5 +360,6 @@ if __name__ == "__main__":
         detailTabel='game_104_result_'+resultTable[7:]
         print(detailTabel)
         statisticUnknownResult(resultTable,detailTabel)
+
 
     
