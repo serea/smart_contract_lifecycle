@@ -22,6 +22,7 @@ boto==2.49.0
 boto3==1.9.174
 botocore==1.12.174
 Bottleneck==1.2.1
+bs4==0.0.1
 certifi==2019.3.9
 cffi==1.12.2
 chardet==3.0.4
@@ -32,6 +33,7 @@ cm==0.1a2
 colorama==0.4.1
 colorspacious==1.1.2
 contextlib2==0.5.5
+construct==2.8.8
 cryptography==2.6.1
 cs==2.7
 cycler==0.10.0
@@ -56,6 +58,7 @@ fastcache==1.0.2
 Flask==1.0.2
 freeze==1.0.10
 gensim==3.7.3
+get==2018.11.19
 gevent==1.4.0
 GMatch4py==0.2.5b0
 gmpy2==2.0.8
@@ -68,6 +71,7 @@ idna==2.8
 imageio==2.5.0
 imagesize==1.1.0
 importlib-metadata==0.0.0
+ipaddress==1.0.16
 ipykernel==5.1.0
 ipython==7.4.0
 ipython-genutils==0.2.0
@@ -129,6 +133,7 @@ pep8==1.7.1
 pexpect==4.6.0
 pickleshare==0.7.5
 Pillow==5.4.1
+post==2018.11.20
 plottools==0.2.0
 pluggy==0.9.0
 ply==3.11
@@ -136,7 +141,9 @@ prometheus-client==0.6.0
 prompt-toolkit==2.0.9
 psutil==5.6.1
 ptyprocess==0.6.0
+public==2018.11.20
 py==1.8.0
+py-solc==3.1.0
 pycodestyle==2.5.0
 pycosat==0.6.3
 pycparser==2.19
@@ -163,9 +170,11 @@ pytz==2018.9
 PyWavelets==1.0.2
 PyYAML==5.1
 pyzmq==18.0.0
+query-string==2018.11.20
 QtAwesome==0.5.7
 qtconsole==4.4.3
 QtPy==1.7.0
+request==2018.11.20
 requests==2.21.0
 rlp==1.1.0
 rope==0.12.0
@@ -176,12 +185,15 @@ scikit-learn==0.20.3
 scipy==1.2.1
 seaborn==0.9.0
 selenium==3.141.0
+semantic-version==2.6.0
 Send2Trash==1.5.0
 simplegeneric==0.8.1
 singledispatch==3.4.0.3
 six==1.12.0
+sklearn==0.0
 smart-open==1.8.4
 snowballstemmer==1.2.1
+socks5==0.2.1
 sortedcollections==1.1.2
 sortedcontainers==2.1.0
 soupsieve==1.8
@@ -198,10 +210,12 @@ tblib==1.3.2
 terminado==0.8.1
 testpath==0.4.2
 toolz==0.9.0
+torch==1.1.0.post2
 tornado==6.0.2
 tqdm==4.32.2
 traitlets==4.3.2
-typed-ast==1.3.1
+transitions==0.4.1
+typed-ast==1.4.0
 unicodecsv==0.14.1
 urllib3==1.24.1
 wcwidth==0.1.7
@@ -210,6 +224,7 @@ webencodings==0.5.1
 websockets==6.0
 Werkzeug==0.14.1
 widgetsnbextension==3.4.2
+wordcloud==1.5.0
 wrapt==1.11.1
 wurlitzer==1.0.2
 xlrd==1.2.0

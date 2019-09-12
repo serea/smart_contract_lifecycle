@@ -1,8 +1,31 @@
-# src
+# DEFIER
 
 Code of this program.
 
-- `Measurement` contains code of getting transaction data and transaction description data of trainset(including meansurement part and goodset), testset.
-- `DEFIER` includes code of our model DEFIER
- -`cluster` clustering the transactions based on the transaction distance
- -`classification` classifying the clusters
+- `Clustering` contains code of clustering transactions of input (goodset and testset ).
+
+   Use kmeans algorithm to cluster transactions of one game.
+
+   run
+
+   ```
+   python run.py
+   ```
+
+- `Classifying` contains code of classiftying transaction clusters.
+ Classifying contains sequence2sequence algorithm and attention model.
+
+ run
+ 
+ ```python
+ python prepossesing.py -beforeClassify=1
+ 
+ run.sh
+ 
+ python prepossesing.py -beforeClassify=0
+ ```
+ 
+ 
+
+
+
